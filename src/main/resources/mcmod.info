@@ -1,0 +1,16 @@
+[
+{
+  "modid": "miningfatiguealert",
+  "name": "Mining Fatigue Alert",
+  "description": "entity.creeper.death",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/TheKingElessar/",
+  "updateUrl": "",
+  "authorList": ["TheKingElessar"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
