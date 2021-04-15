@@ -13,29 +13,23 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class PotionEffectHandler
-{
-    
-    public static boolean hasMiningFatigue = false;
+public class PotionEffectHandler {
+    private static boolean hasMiningFatigue = false;
     
     @SideOnly (Side.CLIENT)
     @SubscribeEvent (priority = EventPriority.NORMAL, receiveCanceled = true)
-    public void onEvent(TickEvent.ClientTickEvent tickEvent)
-    {
+    public void onEvent(TickEvent.ClientTickEvent tickEvent) {
         Minecraft minecraft = Minecraft.getMinecraft();
         EntityPlayerSP player = minecraft.thePlayer;
         
-        if (player == null)
-        {
+        if (player == null) {
             return;
         }
         
         PotionEffect potionEffect = player.getActivePotionEffect(Potion.digSlowdown);
         
-        if (potionEffect != null)
-        {
-            if (hasMiningFatigue)
-            {
+        if (potionEffect != null) {
+            if (hasMiningFatigue) {
                 return;
             }
             
@@ -46,11 +40,10 @@ public class PotionEffectHandler
             Minecraft.getMinecraft().ingameGUI.displayTitle("", "", 0, 0, 0);
     
             hasMiningFatigue = true;
+            return;
         }
-        else
-        {
-            if (hasMiningFatigue) hasMiningFatigue = false;
-        }
+
+        hasMiningFatigue = false;
     }
     
 }
